@@ -6,14 +6,14 @@ The Smart Sprayer Rover is an IoT-based agricultural robot designed to automate 
 The project combines robotics, IoT, computer vision, and automation technologies to support precision agriculture and smart farming.
 
 # Features
-🌿 AI-based leaf health detection (Healthy/Unhealthy)
-📷 Real-time image capture using a camera
-🚜 Autonomous rover movement
-📏 Obstacle detection using ultrasonic sensors
-💧 Automatic pesticide/fertilizer spraying
-🌐 Web-based monitoring and control interface
-📡 Wireless communication using ESP32
-⚡ Low-cost and efficient smart farming solution
+AI-based leaf health detection (Healthy/Unhealthy)
+Real-time image capture using a camera
+Autonomous rover movement
+Obstacle detection using ultrasonic sensors
+Automatic pesticide/fertilizer spraying
+Web-based monitoring and control interface
+Wireless communication using ESP32
+Low-cost and efficient smart farming solution
 
 # Hardware Components
 ESP32 Development Board

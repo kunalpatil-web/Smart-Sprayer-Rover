@@ -16,7 +16,7 @@ Wireless communication using ESP32
 Low-cost and efficient smart farming solution
 
 # Hardware Components
-ESP32 Development Board
+ESP32 Development Board/n
 L298N Motor Driver
 DC Geared Motors (60 RPM)
 Ultrasonic Sensor (HC-SR04)

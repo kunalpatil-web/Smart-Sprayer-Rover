@@ -16,16 +16,16 @@ Wireless communication using ESP32
 Low-cost and efficient smart farming solution
 
 # Hardware Components
-ESP32 Development Board\n
-L298N Motor Driver
-DC Geared Motors (60 RPM)
-Ultrasonic Sensor (HC-SR04)
-Water Pump
-Relay Module
-Rover Chassis
-Battery Pack (12V)
-Camera (Laptop/Web Camera or ESP32-CAM)
-Connecting Wires
+ESP32 Development Board,
+L298N Motor Driver,
+DC Geared Motors (60 RPM),
+Ultrasonic Sensor (HC-SR04),
+Water Pump,
+Relay Module,
+Rover Chassis,
+Battery Pack (12V),
+Camera (Laptop/Web Camera or ESP32-CAM),
+Connecting Wires.
 
 # Software Requirements
 Python

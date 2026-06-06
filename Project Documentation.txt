@@ -1,0 +1,288 @@
+Leaf Health Detection Rover System – Project Documentation
+
+Project Title: AI-Based Leaf Health Detection and Smart Rover System Using ESP32
+
+
+
+1. Project Overview
+
+The Leaf Health Detection Rover System is an AI-powered agricultural automation project designed to monitor plant health and perform automatic actions based on disease detection.
+The vehicle is controlled by human through web interface.
+The system captures leaf images using a laptop camera and processes them using an AI model. The AI model determines whether the leaf is Healthy or Unhealthy.
+If the leaf is Healthy → Rover motor pump remains OFF.
+If the leaf is Unhealthy → Motor pump turns ON automatically for spraying or treatment.
+The rover movement is controlled using a web interface, and obstacle detection is implemented using an ultrasonic sensor to stop the rover when an object is detected within 60 cm.
+
+2. Objectives
+Detect plant leaf diseases using AI.
+Automate agricultural monitoring.
+Control rover movement wirelessly through a web interface.
+Avoid collisions using ultrasonic sensing.
+Activate motor pump automatically when disease is detected.
+
+
+3. System Components and Their Functions
+
+3.1 ESP32 Microcontroller
+Function:
+The ESP32 acts as the main controller of the rover system.
+Responsibilities
+Receives commands from the web interface.
+Controls rover movement.
+Reads ultrasonic sensor data.
+Controls relay and motor pump.
+Communicates with AI detection system.
+
+Features:
+Built-in Wi-Fi for web control.
+Fast processing speed.
+Multiple GPIO pins for sensors and motors.
+Working in Project
+Receives “Healthy” or “Unhealthy” result from AI application.
+Turns relay ON/OFF accordingly.
+Stops rover when obstacle distance is less than 60 cm.
+
+
+3.2 L298N Motor Driver Module
+Function:
+Controls the geared motors of the rover.
+Why It Is Used
+ESP32 cannot provide enough current to drive motors directly. The L298N motor driver amplifies the control signals and powers the motors.
+
+Responsibilities:
+Controls motor direction.
+Controls motor speed.
+Enables forward, backward, left, and right movement.
+Inputs
+Control signals from ESP32.
+Outputs
+Power supply to geared motors.
+
+
+3.3 Geared Motors
+Function:
+Provide movement to the rover.
+Why Geared Motors
+High torque.
+Better control at low speed.
+Suitable for robotic applications.
+
+Working:
+The motors rotate according to commands received from the ESP32 through the L298N motor driver.
+Rover Movements
+Forward
+Backward
+Left
+Right
+Stop
+
+
+3.4 Relay Module
+Function:
+Acts as an electrically controlled switch.
+
+Why Relay Is Used:
+The motor pump requires higher voltage/current than ESP32 can provide directly.
+
+Responsibilities:
+Turns motor pump ON/OFF.
+Isolates high-power circuit from ESP32.
+Working in Project
+AI detects unhealthy leaf.
+ESP32 activates relay.
+Relay powers motor pump.
+
+
+3.5 Motor Pump
+Function:
+Used for spraying water, pesticide, or fertilizer.
+
+Working:
+Activated only when unhealthy leaf is detected.
+Controlled through relay module.
+
+Purpose:
+Automated treatment for infected plants.
+
+
+3.6 Ultrasonic Sensor
+Function:
+Detects obstacles in front of the rover.
+
+Working Principle:
+Measures distance using ultrasonic waves.
+
+Responsibilities:
+Continuously checks object distance.
+Stops rover if obstacle is within 60 cm.
+
+Safety Feature:
+Prevents collision during rover movement.
+
+
+4. Software Components
+4.1 AI Leaf Detection Model
+Function:
+Classifies leaf condition.
+
+Input
+Leaf image captured from laptop camera.
+
+Output:
+Healthy
+Unhealthy
+
+Processing Steps:
+1.Capture image.
+2.Preprocess image.
+3.Run AI model prediction.
+4.Display result on GUI.
+
+
+4.2 Python GUI Application
+Function:
+Provides user interface for leaf detection.
+
+Features:
+Live camera feed.
+Capture button.
+Prediction display.
+Clear result option.
+Quit application option.
+
+Technologies Used:
+Python
+OpenCV
+Tkinter
+TensorFlow/Keras
+
+
+4.3 Web Interface for Rover Control
+Function:
+Controls rover movement wirelessly.
+
+Features:
+Forward button
+Backward button
+Left button
+Right button
+Stop button
+
+
+Communication:
+Uses ESP32 Wi-Fi server.
+
+5. Complete System Working Flow:
+
+Step 1 – Start System
+ESP32 powers ON.
+Web server starts.
+AI application starts on laptop.
+
+Step 2 – Capture Leaf Image
+User places leaf in front of laptop camera.
+Clicks “Capture & Predict”.
+
+Step 3 – AI Processing
+Image is processed using AI model.
+System predicts:
+Healthy
+Unhealthy
+
+Step 4 – Decision Making
+If Leaf Is Healthy
+ESP32 receives healthy signal.
+Relay remains OFF.
+Motor pump stays OFF.
+If Leaf Is Unhealthy
+ESP32 receives unhealthy signal.
+Relay turns ON.
+Motor pump activates.
+
+Step 5 – Rover Movement
+User controls rover through web interface.
+ESP32 sends commands to motor driver.
+Motor driver moves geared motors.
+
+Step 6 – Obstacle Detection
+Ultrasonic sensor continuously measures distance.
+If object detected within 60 cm:
+ESP32 stops rover immediately.
+
+
+6. System Architecture
+Input Devices:
+Laptop Camera
+Ultrasonic Sensor
+Web Interface Commands
+
+Processing Units:
+AI Model
+ESP32 Controller
+
+Output Devices:
+Geared Motors
+Motor Pump
+Relay
+GUI Result Display
+
+
+7. Communication Flow: 
+
+Laptop Camera
+      ↓
+AI Model Processing
+      ↓
+Healthy / Unhealthy Result
+      ↓
+ESP32 Controller
+      ↓
+Relay Control
+      ↓
+Motor Pump ON/OFF
+
+
+8. Rover Control Flow:
+Web Interface
+      ↓
+ESP32 Wi-Fi Server
+      ↓
+L298N Motor Driver
+      ↓
+Geared Motors
+      ↓
+Rover Movement
+
+9. Obstacle Detection Flow:
+Ultrasonic Sensor
+      ↓
+Distance Measurement
+      ↓
+ESP32 Processing
+      ↓
+If Distance < 60 cm
+      ↓
+Stop Rover
+
+9.Technologies Used
+Hardware:
+ESP32
+L298N Motor Driver
+Geared Motors
+Relay Module
+Ultrasonic Sensor
+Motor Pump
+
+
+Software:
+Python
+OpenCV
+TensorFlow/Keras
+Tkinter GUI
+HTML/CSS/JavaScript
+Arduino IDE
+
+
+10. Conclusion
+
+The AI-Based Leaf Health Detection Rover System combines artificial intelligence, robotics, and IoT technologies to create an intelligent agricultural monitoring solution. The project successfully detects leaf health conditions, automates pump control, provides wireless rover navigation, and ensures safe movement using obstacle detection. This system helps improve farming efficiency and supports smart agriculture practices.
